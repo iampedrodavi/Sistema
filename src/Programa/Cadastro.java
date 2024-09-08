@@ -46,6 +46,7 @@ public class Cadastro extends JFrame {
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         setContentPane(contentPane);
         contentPane.setLayout(null);
+        setLocationRelativeTo(null);
 
         JLabel lblUser = new JLabel("Nome: ");
         lblUser.setFont(new Font("Times New Roman", Font.BOLD, 12));
