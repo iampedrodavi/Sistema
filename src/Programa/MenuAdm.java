@@ -62,6 +62,15 @@ public class MenuAdm extends JFrame {
         	}
         });
         getContentPane().setLayout(null);
+        
+        JButton btnNewButton = new JButton("Folha Salarial");
+        btnNewButton.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		new FolhaSalarial().setVisible(true);
+                dispose();
+        	}
+        });
+        panelButtons.add(btnNewButton);
         panelButtons.add(btnSair);
 
         getContentPane().add(panelButtons);

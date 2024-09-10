@@ -30,7 +30,7 @@ public class SetupBanco {
                     + "senhauser VARCHAR(255) NOT NULL, "
                     + "tipo VARCHAR(50) NOT NULL DEFAULT 'Normal'"
                     + ");");
-            
+            st.execute("INSERT INTO user (nomeuser, senhauser, tipo) VALUES ('123', '123', 'Adm');");
         
                     String sqlInserts =
                     		"INSERT INTO funcionario (nome_fun, idade_fun, cpf_fun, email_fun, cargo_fun, salario_fun) VALUES\r\n"

@@ -8,6 +8,7 @@ public class Funcionario {
      private String cpfFun;
      private String emailFun;
      private String cargoFun;
+     private int salarioFun;
  
      public Funcionario() {
          this.idFun = 0;
@@ -18,13 +19,14 @@ public class Funcionario {
          this.cargoFun = "Desconhecido";
      }
 
-     public Funcionario(int idFun, String nomeFun, int idadeFun, String cpfFun, String emailFun, String cargoFun) {
+     public Funcionario(int idFun, String nomeFun, int idadeFun, String cpfFun, String emailFun, String cargoFun, int salarioFun) {
          this.idFun = idFun;
          this.nomeFun = nomeFun;
          this.idadeFun = idadeFun;
          this.cpfFun = cpfFun;
          this.emailFun = emailFun;
          this.cargoFun = cargoFun;
+         this.salarioFun = salarioFun;
      }
 
      public int getIdFun() {
@@ -82,16 +84,24 @@ public class Funcionario {
              this.cargoFun = cargoFun;
          }
      }
+     public int getSalarioFun() {
+         return salarioFun;
+     }
+ 
+     public void setSalarioFun(int salarioFun) {
+         this.salarioFun = salarioFun;
+     }
  
      @Override
      public String toString() {
          return "Funcionario{" +
-                 "idFun=" + idFun +
-                 ", nomeFun='" + nomeFun + '\'' +
-                 ", idadeFun=" + idadeFun +
-                 ", cpfFun='" + cpfFun + '\'' +
-                 ", emailFun='" + emailFun + '\'' +
-                 ", cargoFun='" + cargoFun + '\'' +
+                 "Id =" + idFun +
+                 ", Nome ='" + nomeFun + '\'' +
+                 ", Idade =" + idadeFun +
+                 ", CPF ='" + cpfFun + '\'' +
+                 ", E-mail ='" + emailFun + '\'' +
+                 ", Cargo ='" + cargoFun + '\'' +
+                 ", Salário =" + salarioFun+
                  '}';
      }
 }

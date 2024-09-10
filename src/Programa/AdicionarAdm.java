@@ -9,16 +9,17 @@ public class AdicionarAdm extends JFrame {
 
     private static final long serialVersionUID = 1L;
     private Conexao conexao = new Conexao();
+    private JTextField txtSal;
 
     public AdicionarAdm() {
         setIconImage(Toolkit.getDefaultToolkit().getImage(AdicionarAdm.class.getResource("/Programa/Imagens/recursos-humanos.png")));
         setTitle("Cadastro de Funcionários");
-        setSize(400, 300);
+        setSize(400, 367);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         JPanel panelInput = new JPanel();
-        panelInput.setLayout(new GridLayout(6, 2));
+        panelInput.setLayout(new GridLayout(7, 2));
 
         JLabel label = new JLabel("Nome:");
         label.setFont(new Font("Times New Roman", Font.BOLD, 20));
@@ -49,6 +50,14 @@ public class AdicionarAdm extends JFrame {
         panelInput.add(label_4);
         JTextField txtCargo = new JTextField();
         panelInput.add(txtCargo);
+        
+        JLabel lblSal = new JLabel("Salário:");
+        lblSal.setFont(new Font("Times New Roman", Font.BOLD, 20));
+        panelInput.add(lblSal);
+        
+        txtSal = new JTextField();
+        panelInput.add(txtSal);
+        txtSal.setColumns(10);
 
         JButton btnNewButton = new JButton("Voltar");
         btnNewButton.addActionListener(new ActionListener() {
@@ -57,6 +66,8 @@ public class AdicionarAdm extends JFrame {
                 dispose();
             }
         });
+        
+      
         panelInput.add(btnNewButton);
 
         JButton btnAdicionar = new JButton("Adicionar");
@@ -66,10 +77,12 @@ public class AdicionarAdm extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 String nome = txtNome.getText();
                 String idadeStr = txtIdade.getText();
+                String salarioStr = txtSal.getText();
                 String cpf = txtCpf.getText();
                 String email = txtEmail.getText();
                 String cargo = txtCargo.getText();
                 int idade = Integer.parseInt(idadeStr);
+                int salario = Integer.parseInt(salarioStr);
              
                 if (conexao.verificarCpfExistente(cpf)) {
                     JOptionPane.showMessageDialog(null, "CPF já cadastrado!", "Erro", JOptionPane.ERROR_MESSAGE);
@@ -80,7 +93,7 @@ public class AdicionarAdm extends JFrame {
                     return;
                 }
 
-                Funcionario funcionario = new Funcionario(0, nome, idade, cpf, email, cargo);
+                Funcionario funcionario = new Funcionario(0, nome, idade, cpf, email, cargo, salario);
                 conexao.inserirNovoFuncionario(funcionario);
 
                 JOptionPane.showMessageDialog(null, "Funcionário cadastrado com sucesso!");
