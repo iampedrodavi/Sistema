@@ -14,6 +14,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
 
+
 public class Login extends JFrame {
 
 	private static final long serialVersionUID = 1L;
@@ -36,7 +37,7 @@ public class Login extends JFrame {
 	}
 
 	
-	public Login() {
+		public Login() {
 		setTitle("LOGIN - RH");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Login.class.getResource("/Programa/Imagens/recursos-humanos.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -49,13 +50,13 @@ public class Login extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel txtuser = new JLabel("Usuário: ");
-		txtuser.setFont(new Font("Times New Roman", Font.BOLD, 12));
 		txtuser.setBounds(10, 11, 56, 14);
+		txtuser.setFont(new Font("Times New Roman", Font.BOLD, 12));
 		contentPane.add(txtuser);
 		
 		JLabel txtsen = new JLabel("Senha: ");
-		txtsen.setFont(new Font("Times New Roman", Font.BOLD, 12));
 		txtsen.setBounds(10, 52, 56, 14);
+		txtsen.setFont(new Font("Times New Roman", Font.BOLD, 12));
 		contentPane.add(txtsen);
 		
 		boxuser = new JTextField();
@@ -69,6 +70,7 @@ public class Login extends JFrame {
 		boxpass.setColumns(10);
 		
 		JButton btnLog = new JButton("Entrar");
+		btnLog.setBounds(190, 7, 89, 23);
 		btnLog.setFont(new Font("Times New Roman", Font.BOLD, 12));
 		btnLog.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -95,28 +97,28 @@ public class Login extends JFrame {
 				
 			}
 		});
-		btnLog.setBounds(190, 7, 89, 23);
 		contentPane.add(btnLog);
 		
 		JButton btnSair = new JButton("Sair");
+		btnSair.setBounds(190, 87, 89, 23);
 		btnSair.setFont(new Font("Times New Roman", Font.BOLD, 12));
 		btnSair.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 			}
 		});
-		btnSair.setBounds(190, 87, 89, 23);
 		contentPane.add(btnSair);
 		
-		JButton btnNewButton = new JButton("Cadastrar");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btnCadastrar = new JButton("Cadastrar");
+		btnCadastrar.setBounds(190, 47, 89, 23);
+		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				new Cadastro().setVisible(true);
 	       		 dispose();
 			}
 		});
-		btnNewButton.setFont(new Font("Times New Roman", Font.BOLD, 12));
-		btnNewButton.setBounds(190, 47, 89, 23);
-		contentPane.add(btnNewButton);
+		btnCadastrar.setFont(new Font("Times New Roman", Font.BOLD, 12));
+		contentPane.add(btnCadastrar);
+		
 	}
 }
