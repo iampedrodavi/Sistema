@@ -112,7 +112,7 @@ public class Login extends JFrame {
 		txtuser.setFont(new Font("Times New Roman", Font.BOLD, 12));
 		
 		boxuser = new JTextField();
-		boxuser.setBounds(70, 0, 100, 32);
+		boxuser.setBounds(70, 11, 100, 20);
 		panel.add(boxuser);
 		boxuser.setColumns(10);
 		
@@ -122,7 +122,7 @@ public class Login extends JFrame {
 		txtsen.setFont(new Font("Times New Roman", Font.BOLD, 12));
 		
 		boxpass = new JTextField();
-		boxpass.setBounds(70, 54, 100, 32);
+		boxpass.setBounds(70, 54, 100, 20);
 		panel.add(boxpass);
 		boxpass.setColumns(10);
 		
