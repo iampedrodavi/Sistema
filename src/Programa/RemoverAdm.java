@@ -16,6 +16,7 @@ public class RemoverAdm extends JFrame {
     private JScrollPane scrollPane;
 
     public RemoverAdm() {
+    	setTitle("Remover Funcionário");
         setIconImage(Toolkit.getDefaultToolkit().getImage(RemoverAdm.class.getResource("/Programa/Imagens/recursos-humanos.png")));
         setSize(690, 438);
         setLocationRelativeTo(null);
