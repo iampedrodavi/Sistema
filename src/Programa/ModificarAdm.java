@@ -113,7 +113,7 @@ public class ModificarAdm extends JFrame {
                     return;
                 }
 
-                Conexao conexao = new Conexao("jdbc:mysql://localhost:3306/sistema", "root", "290600");
+                Conexao conexao = new Conexao();
                 Funcionario funcionario = conexao.buscarFuncionarioPorId(id);
 
                 if (funcionario != null) {
@@ -159,7 +159,7 @@ public class ModificarAdm extends JFrame {
     }
 
     private void atualizarTabela(String buscar) {
-        Conexao conexao = new Conexao("jdbc:mysql://localhost:3306/sistema", "root", "290600");
+        Conexao conexao = new Conexao();
         List<Funcionario> funcionarios = buscar.isEmpty() ? conexao.buscarFuncionarios() : conexao.buscarFuncionariosPorNome(buscar);
 
         String[] colunas = {"ID", "Nome", "Idade", "CPF", "E-mail", "Cargo"};
@@ -180,6 +180,7 @@ public class ModificarAdm extends JFrame {
         }
 
         tabela = new JTable(dados, colunas);
+        tabela.setDefaultEditor(Object.class, null);
         scrollPane = new JScrollPane(tabela);
         scrollPane.setBounds(384, 0, 834, 427);
         getContentPane().add(scrollPane);

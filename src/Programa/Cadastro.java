@@ -22,7 +22,7 @@ public class Cadastro extends JFrame {
     private JTextField textUser;
     private JTextField textPass;
     private String tipo = "Normal";
-    private Conexao conexao = new Conexao("jdbc:mysql://localhost:3306/sistema", "root", "290600");
+    private Conexao conexao = new Conexao();
 
     public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {

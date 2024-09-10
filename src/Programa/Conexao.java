@@ -13,10 +13,10 @@ public class Conexao {
     private PreparedStatement pst;
     private ResultSet rs;
 
-    public Conexao(String host, String user, String password){
-        this.host = host;
-        this.user = user;
-        this.password = password;
+    public Conexao(){
+        this.host = "jdbc:mysql://localhost:3306/sistema";
+        this.user = "root";
+        this.password = "Aluno";
     }
 
     public void conectar() {

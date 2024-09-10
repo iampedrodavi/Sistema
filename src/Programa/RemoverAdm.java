@@ -9,7 +9,7 @@ import java.util.List;
 public class RemoverAdm extends JFrame {
 
     private static final long serialVersionUID = 1L;
-    private Conexao conexao = new Conexao("jdbc:mysql://localhost:3306/sistema", "root", "290600");
+    private Conexao conexao = new Conexao();
     private JTextField textId;
     private JTextField txtbus;
     private JTable tabela;
@@ -112,6 +112,7 @@ public class RemoverAdm extends JFrame {
         }
 
         tabela = new JTable(dados, colunas);
+        tabela.setDefaultEditor(Object.class, null);
         scrollPane = new JScrollPane(tabela);
         scrollPane.setBounds(10, 46, 663, 304);
         getContentPane().add(scrollPane, BorderLayout.CENTER);

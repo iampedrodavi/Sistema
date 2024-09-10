@@ -68,7 +68,7 @@ public class Listar extends JFrame {
     }
 
     private void atualizarTabela(String buscar) {
-        Conexao conexao = new Conexao("jdbc:mysql://localhost:3306/sistema", "root", "290600");
+        Conexao conexao = new Conexao();
         List<Funcionario> funcionarios = buscar.isEmpty() ? conexao.buscarFuncionarios() : conexao.buscarFuncionariosPorNome(buscar);
 
         String[] colunas = {"ID", "Nome", "Idade", "CPF", "E-mail", "Cargo"};
@@ -89,6 +89,7 @@ public class Listar extends JFrame {
         }
 
         tabela = new JTable(dados, colunas);
+        tabela.setDefaultEditor(Object.class, null);
         scrollPane = new JScrollPane(tabela);
         scrollPane.setBounds(0, 0, 684, 395);
         getContentPane().add(scrollPane);
@@ -104,7 +105,7 @@ public class Listar extends JFrame {
 
     
     private void mostrarFuncionariosPertoAposentadoria() {
-        Conexao conexao = new Conexao("jdbc:mysql://localhost:3306/sistema", "root", "290600");
+        Conexao conexao = new Conexao();
         List<Funcionario> funcionariosPertoAposentadoria = conexao.Aposentadoria(); 
 
         String[] colunas = {"ID", "Nome", "Idade", "CPF", "E-mail", "Cargo", "Anos para Aposentadoria"};

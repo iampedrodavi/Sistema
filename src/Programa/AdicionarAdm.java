@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 public class AdicionarAdm extends JFrame {
 
     private static final long serialVersionUID = 1L;
-    private Conexao conexao = new Conexao("jdbc:mysql://localhost:3306/sistema", "root", "290600");
+    private Conexao conexao = new Conexao();
 
     public AdicionarAdm() {
         setIconImage(Toolkit.getDefaultToolkit().getImage(AdicionarAdm.class.getResource("/Programa/Imagens/recursos-humanos.png")));
