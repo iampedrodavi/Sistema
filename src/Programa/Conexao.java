@@ -206,6 +206,36 @@ public class Conexao {
                 this.desconectar();
                 }
     
+    public List<Funcionario> Aposentadoria() {
+        this.conectar();
+        List<Funcionario> funcionarios = new ArrayList<>();
+
+        try {
+            pst = con.prepareStatement("SELECT * FROM funcionario WHERE idade_fun >= 60;");
+            rs = pst.executeQuery();
+
+            while (rs.next()) {
+                Funcionario funcionario = new Funcionario();
+                funcionario.setIdFun(rs.getInt("id_fun"));
+                funcionario.setNomeFun(rs.getString("nome_fun"));
+                funcionario.setIdadeFun(rs.getInt("idade_fun"));
+                funcionario.setCpfFun(rs.getString("cpf_fun"));
+                funcionario.setEmailFun(rs.getString("email_fun"));
+                funcionario.setCargoFun(rs.getString("cargo_fun"));
+                funcionarios.add(funcionario);
+            }
+        } catch (SQLException e) {
+            System.out.println("Erro ao buscar funcionários: " + e.getMessage());
+        } finally {
+            this.desconectar();
+        }
+
+        return funcionarios;
+    }
+
+
+
+    
     public void modificarFuncionario(Funcionario funcionario) {
 
         conectar();
