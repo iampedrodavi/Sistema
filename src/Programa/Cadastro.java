@@ -39,7 +39,7 @@ public class Cadastro extends JFrame {
 
     public Cadastro() {
     	setIconImage(Toolkit.getDefaultToolkit().getImage(Cadastro.class.getResource("/Programa/Imagens/recursos-humanos.png")));
-        setTitle("CADASTRO");
+        setTitle("Cadastro");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 255, 170);
         contentPane = new JPanel();
