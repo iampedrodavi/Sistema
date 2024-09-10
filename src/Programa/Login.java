@@ -13,6 +13,8 @@ import java.awt.Toolkit;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
 
 
 public class Login extends JFrame {
@@ -21,7 +23,7 @@ public class Login extends JFrame {
 	private JPanel contentPane;
 	private JTextField boxuser;
 	private JTextField boxpass;
-	private Conexao conexao = new Conexao("jdbc:mysql://localhost:3306/sistema", "root", "290600");
+	private Conexao conexao = new Conexao();
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -48,26 +50,6 @@ public class Login extends JFrame {
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
-		JLabel txtuser = new JLabel("Usuário: ");
-		txtuser.setBounds(10, 11, 56, 14);
-		txtuser.setFont(new Font("Times New Roman", Font.BOLD, 12));
-		contentPane.add(txtuser);
-		
-		JLabel txtsen = new JLabel("Senha: ");
-		txtsen.setBounds(10, 52, 56, 14);
-		txtsen.setFont(new Font("Times New Roman", Font.BOLD, 12));
-		contentPane.add(txtsen);
-		
-		boxuser = new JTextField();
-		boxuser.setBounds(60, 8, 86, 20);
-		contentPane.add(boxuser);
-		boxuser.setColumns(10);
-		
-		boxpass = new JTextField();
-		boxpass.setBounds(60, 49, 86, 20);
-		contentPane.add(boxpass);
-		boxpass.setColumns(10);
 		
 		JButton btnLog = new JButton("Entrar");
 		btnLog.setBounds(190, 7, 89, 23);
@@ -119,6 +101,31 @@ public class Login extends JFrame {
 		});
 		btnCadastrar.setFont(new Font("Times New Roman", Font.BOLD, 12));
 		contentPane.add(btnCadastrar);
+		
+		JPanel panel = new JPanel();
+		panel.setBounds(10, 11, 170, 86);
+		contentPane.add(panel);
+		panel.setLayout(null);
+		
+		JLabel txtuser = new JLabel("Usuário: ");
+		txtuser.setBounds(0, 0, 85, 43);
+		panel.add(txtuser);
+		txtuser.setFont(new Font("Times New Roman", Font.BOLD, 12));
+		
+		boxuser = new JTextField();
+		boxuser.setBounds(70, 0, 100, 32);
+		panel.add(boxuser);
+		boxuser.setColumns(10);
+		
+		JLabel txtsen = new JLabel("Senha: ");
+		txtsen.setBounds(0, 43, 85, 43);
+		panel.add(txtsen);
+		txtsen.setFont(new Font("Times New Roman", Font.BOLD, 12));
+		
+		boxpass = new JTextField();
+		boxpass.setBounds(70, 54, 100, 32);
+		panel.add(boxpass);
+		boxpass.setColumns(10);
 		
 	}
 }
