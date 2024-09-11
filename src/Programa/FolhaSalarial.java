@@ -128,7 +128,7 @@ public class FolhaSalarial extends JFrame {
                     double salarioLiquido = salario - totalDescontos;
 
                     String mensagem = String.format(
-                        "Folha Salarial de %s\n" +
+                        "Funcionário: %s\n" +
                         "Salário Bruto: R$ %.2f\n" +
                         "Desconto INSS: R$ %.2f\n" +
                         "Vale Transporte: R$ %.2f\n" +
