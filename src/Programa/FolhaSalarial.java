@@ -18,6 +18,7 @@ public class FolhaSalarial extends JFrame {
         setIconImage(Toolkit.getDefaultToolkit().getImage(FolhaSalarial.class.getResource("/Programa/Imagens/recursos-humanos.png")));
         setTitle("Lista de Funcionários");
         setSize(702, 558);
+        setResizable(false);
         setLocationRelativeTo(null);
         getContentPane().setLayout(null);
 

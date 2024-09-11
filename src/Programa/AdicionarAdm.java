@@ -15,6 +15,7 @@ public class AdicionarAdm extends JFrame {
         setIconImage(Toolkit.getDefaultToolkit().getImage(AdicionarAdm.class.getResource("/Programa/Imagens/recursos-humanos.png")));
         setTitle("Cadastro de Funcionários");
         setSize(400, 367);
+        setResizable(false);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 

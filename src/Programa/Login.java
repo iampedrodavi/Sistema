@@ -43,6 +43,7 @@ public class Login extends JFrame {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Login.class.getResource("/Programa/Imagens/recursos-humanos.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 305, 157);
+		setResizable(false);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setLocationRelativeTo(null);

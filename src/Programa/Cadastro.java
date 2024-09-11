@@ -42,6 +42,7 @@ public class Cadastro extends JFrame {
         setTitle("Cadastro");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 255, 170);
+        setResizable(false);
         contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         setContentPane(contentPane);

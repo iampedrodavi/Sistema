@@ -19,6 +19,7 @@ public class RemoverAdm extends JFrame {
     	setTitle("Remover Funcionário");
         setIconImage(Toolkit.getDefaultToolkit().getImage(RemoverAdm.class.getResource("/Programa/Imagens/recursos-humanos.png")));
         setSize(690, 438);
+        setResizable(false);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(null);

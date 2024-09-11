@@ -17,6 +17,7 @@ public class ModificarAdm extends JFrame {
         setIconImage(Toolkit.getDefaultToolkit().getImage(ModificarAdm.class.getResource("/Programa/Imagens/recursos-humanos.png")));
         setTitle("Modificar Funcionário");
         setSize(1234, 353);
+        setResizable(false);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 

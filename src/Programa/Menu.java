@@ -13,6 +13,7 @@ public class Menu extends JFrame {
     	setIconImage(Toolkit.getDefaultToolkit().getImage(Menu.class.getResource("/Programa/Imagens/recursos-humanos.png")));
         setTitle("Sistema RH");
         setSize(800, 600);
+        setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 

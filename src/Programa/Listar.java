@@ -18,6 +18,7 @@ public class Listar extends JFrame {
         setIconImage(Toolkit.getDefaultToolkit().getImage(Listar.class.getResource("/Programa/Imagens/recursos-humanos.png")));
         setTitle("Lista de Funcionários");
         setSize(700, 485);
+        setResizable(false);
         setLocationRelativeTo(null);
         getContentPane().setLayout(null);
 
