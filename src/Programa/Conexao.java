@@ -16,7 +16,7 @@ public class Conexao {
     public Conexao(){
         this.host = "jdbc:mysql://localhost:3306/sistema";
         this.user = "root";
-        this.password = "Aluno";
+        this.password = "290600";
     }
 
     public void conectar() {
@@ -64,6 +64,7 @@ public class Conexao {
                 funcionario.setCpfFun(rs.getString("cpf_fun"));
                 funcionario.setEmailFun(rs.getString("email_fun"));
                 funcionario.setCargoFun(rs.getString("cargo_fun"));
+                funcionario.setSalarioFun(rs.getInt("salario_fun"));
                 funcionarios.add(funcionario);
             }
         } catch (SQLException e) {
@@ -76,12 +77,13 @@ public class Conexao {
     public void inserirNovoFuncionario(Funcionario funcionario){
         conectar();
         try {
-            pst = con.prepareStatement("INSERT INTO funcionario (nome_fun, idade_fun, cpf_fun, email_fun, cargo_fun) VALUES (?, ?, ?, ?, ?)");
+            pst = con.prepareStatement("INSERT INTO funcionario (nome_fun, idade_fun, cpf_fun, email_fun, cargo_fun, salario_fun) VALUES (?, ?, ?, ?, ?, ?)");
             pst.setString(1, funcionario.getNomeFun());
             pst.setInt(2, funcionario.getIdadeFun());
             pst.setString(3, funcionario.getCpfFun());
             pst.setString(4, funcionario.getEmailFun());
             pst.setString(5, funcionario.getCargoFun());
+            pst.setInt(6, funcionario.getSalarioFun());
 
             pst.executeUpdate();
         } catch (SQLException e) {
@@ -184,6 +186,7 @@ public class Conexao {
                 funcionario.setCpfFun(rs.getString("cpf_fun"));
                 funcionario.setEmailFun(rs.getString("email_fun"));
                 funcionario.setCargoFun(rs.getString("cargo_fun"));
+                funcionario.setSalarioFun(rs.getInt("salario_fun"));
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -222,6 +225,7 @@ public class Conexao {
                 funcionario.setCpfFun(rs.getString("cpf_fun"));
                 funcionario.setEmailFun(rs.getString("email_fun"));
                 funcionario.setCargoFun(rs.getString("cargo_fun"));
+                funcionario.setSalarioFun(rs.getInt("salario_fun"));
                 funcionarios.add(funcionario);
             }
         } catch (SQLException e) {
@@ -240,7 +244,7 @@ public class Conexao {
 
         conectar();
         try {
-            String atualizar = "UPDATE funcionario SET nome_fun = ?, idade_fun = ?, cpf_fun = ?, email_fun = ?, cargo_fun = ? WHERE id_fun = ?";
+            String atualizar = "UPDATE funcionario SET nome_fun = ?, idade_fun = ?, cpf_fun = ?, email_fun = ?, cargo_fun = ? , salario_fun = ? , WHERE id_fun = ?";
             pst = con.prepareStatement(atualizar);
 
             pst.setString(1, funcionario.getNomeFun());
@@ -248,7 +252,8 @@ public class Conexao {
             pst.setString(3, funcionario.getCpfFun());
             pst.setString(4, funcionario.getEmailFun());
             pst.setString(5, funcionario.getCargoFun());
-            pst.setInt(6, funcionario.getIdFun());
+            pst.setInt(6, funcionario.getSalarioFun());
+            pst.setInt(7, funcionario.getIdFun());
 
             int linhasAfetadas = pst.executeUpdate();
 
@@ -282,6 +287,7 @@ public class Conexao {
                 funcionario.setCpfFun(rs.getString("cpf_fun"));
                 funcionario.setEmailFun(rs.getString("email_fun"));
                 funcionario.setCargoFun(rs.getString("cargo_fun"));
+                funcionario.setSalarioFun(rs.getInt("salario_fun"));
                 funcionarios.add(funcionario);
             }
         } catch (SQLException e) {
