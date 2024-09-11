@@ -41,7 +41,7 @@ public class Cadastro extends JFrame {
     	setIconImage(Toolkit.getDefaultToolkit().getImage(Cadastro.class.getResource("/Programa/Imagens/recursos-humanos.png")));
         setTitle("Cadastro");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(100, 100, 255, 170);
+        setBounds(100, 100, 285, 135);
         setResizable(false);
         contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -51,32 +51,32 @@ public class Cadastro extends JFrame {
 
         JLabel lblUser = new JLabel("Nome: ");
         lblUser.setFont(new Font("Times New Roman", Font.BOLD, 12));
-        lblUser.setBounds(20, 30, 46, 14);
+        lblUser.setBounds(10, 11, 46, 14);
         contentPane.add(lblUser);
 
         textUser = new JTextField();
-        textUser.setBounds(62, 27, 100, 20);
+        textUser.setBounds(62, 8, 100, 20);
         contentPane.add(textUser);
         textUser.setColumns(10);
 
         JLabel lblPass = new JLabel("Senha:");
         lblPass.setFont(new Font("Times New Roman", Font.BOLD, 12));
-        lblPass.setBounds(20, 58, 46, 14);
+        lblPass.setBounds(10, 36, 46, 14);
         contentPane.add(lblPass);
 
         textPass = new JTextField();
-        textPass.setBounds(62, 55, 100, 20);
+        textPass.setBounds(62, 33, 100, 20);
         contentPane.add(textPass);
         textPass.setColumns(10);
 
-        JRadioButton rdbtnAdm = new JRadioButton("Adm");
+        JRadioButton rdbtnAdm = new JRadioButton("Administrador");
         rdbtnAdm.setFont(new Font("Times New Roman", Font.BOLD, 12));
-        rdbtnAdm.setBounds(168, 26, 59, 23);
+        rdbtnAdm.setBounds(168, 7, 110, 23);
         contentPane.add(rdbtnAdm);
 
-        JRadioButton rdbtnNormal = new JRadioButton("Normal");
+        JRadioButton rdbtnNormal = new JRadioButton("Usuário");
         rdbtnNormal.setFont(new Font("Times New Roman", Font.BOLD, 12));
-        rdbtnNormal.setBounds(168, 54, 75, 23);
+        rdbtnNormal.setBounds(168, 32, 110, 23);
         contentPane.add(rdbtnNormal);
 
         ButtonGroup group = new ButtonGroup();
@@ -95,7 +95,7 @@ public class Cadastro extends JFrame {
             }
         });
 
-        JButton btnCadastrar = new JButton("Cadastrar");
+        JButton btnCadastrar = new JButton("Confirmar");
         btnCadastrar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String nome = textUser.getText();
@@ -124,7 +124,7 @@ public class Cadastro extends JFrame {
             }
         });
         btnCadastrar.setFont(new Font("Times New Roman", Font.BOLD, 12));
-        btnCadastrar.setBounds(119, 97, 89, 23);
+        btnCadastrar.setBounds(159, 64, 100, 23);
         contentPane.add(btnCadastrar);
 
         JButton btnVoltar = new JButton("Voltar");
@@ -135,7 +135,7 @@ public class Cadastro extends JFrame {
                 dispose();
             }
         });
-        btnVoltar.setBounds(20, 97, 89, 23);
+        btnVoltar.setBounds(10, 64, 100, 23);
         contentPane.add(btnVoltar);
     }
 }

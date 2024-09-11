@@ -12,20 +12,22 @@ public class MenuAdm extends JFrame {
 	public MenuAdm() {
     	setIconImage(Toolkit.getDefaultToolkit().getImage(MenuAdm.class.getResource("/Programa/Imagens/recursos-humanos.png")));
         setTitle("Sistema RH");
-        setSize(800, 600);
+        setSize(600, 450);
         setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
       
         JPanel panelButtons = new JPanel();
-        panelButtons.setBounds(192, 147, 400, 300);
+        panelButtons.setBounds(92, 92, 400, 300);
 
         JButton btnAdicionar = new JButton("Adicionar Funcionário");
+        btnAdicionar.setFont(new Font("Times New Roman", Font.BOLD, 14));
         panelButtons.setLayout(new GridLayout(0, 1, 0, 0));
 
         panelButtons.add(btnAdicionar);
         JButton btnListar = new JButton("Listar Funcionários");
+        btnListar.setFont(new Font("Times New Roman", Font.BOLD, 14));
         panelButtons.add(btnListar);
         
         btnListar.addActionListener(new ActionListener() {
@@ -36,6 +38,7 @@ public class MenuAdm extends JFrame {
                     }
                 });
         JButton btnModificar = new JButton("Modificar Funcionário");
+        btnModificar.setFont(new Font("Times New Roman", Font.BOLD, 14));
         panelButtons.add(btnModificar);
         
                 btnModificar.addActionListener(new ActionListener() {
@@ -45,7 +48,18 @@ public class MenuAdm extends JFrame {
                         dispose();
                     }
                 });
+        
+        JButton btnNewButton = new JButton("Folha Salarial");
+        btnNewButton.setFont(new Font("Times New Roman", Font.BOLD, 14));
+        btnNewButton.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		new FolhaSalarial().setVisible(true);
+                dispose();
+        	}
+        });
+        panelButtons.add(btnNewButton);
         JButton btnRemover = new JButton("Remover Funcionário");
+        btnRemover.setFont(new Font("Times New Roman", Font.BOLD, 14));
         panelButtons.add(btnRemover);
         
                 btnRemover.addActionListener(new ActionListener() {
@@ -57,21 +71,13 @@ public class MenuAdm extends JFrame {
                 });
         
         JButton btnSair = new JButton("Sair");
+        btnSair.setFont(new Font("Times New Roman", Font.BOLD, 14));
         btnSair.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		System.exit(0);
         	}
         });
         getContentPane().setLayout(null);
-        
-        JButton btnNewButton = new JButton("Folha Salarial");
-        btnNewButton.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-        		new FolhaSalarial().setVisible(true);
-                dispose();
-        	}
-        });
-        panelButtons.add(btnNewButton);
         panelButtons.add(btnSair);
 
         getContentPane().add(panelButtons);
@@ -79,14 +85,8 @@ public class MenuAdm extends JFrame {
         JLabel lblNewLabel = new JLabel("Bem-Vindo ao Sistema RH");
         lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
         lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 34));
-        lblNewLabel.setBounds(192, 51, 400, 70);
+        lblNewLabel.setBounds(92, 11, 400, 70);
         getContentPane().add(lblNewLabel);
-        
-        JLabel lblNewLabel_1 = new JLabel("");
-        lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
-        lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\Aluno.EDU\\Downloads\\SistemaRhFinalizado-20240826T213320Z-001\\SistemaRhFinalizado\\recursos.png"));
-        lblNewLabel_1.setBounds(10, 11, 172, 150);
-        getContentPane().add(lblNewLabel_1);
         
    
 

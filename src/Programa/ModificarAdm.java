@@ -12,18 +12,19 @@ public class ModificarAdm extends JFrame {
     private JTextField txtbus;
     private JTable tabela;
     private JScrollPane scrollPane;
+    private JTextField txtSal;
 
     public ModificarAdm() {
         setIconImage(Toolkit.getDefaultToolkit().getImage(ModificarAdm.class.getResource("/Programa/Imagens/recursos-humanos.png")));
         setTitle("Modificar Funcionário");
-        setSize(1234, 353);
+        setSize(1234, 393);
         setResizable(false);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         JPanel panelInput = new JPanel();
-        panelInput.setBounds(0, 52, 384, 261);
-        panelInput.setLayout(new GridLayout(7, 2));
+        panelInput.setBounds(10, 52, 448, 301);
+        panelInput.setLayout(new GridLayout(8, 2));
 
         JLabel label = new JLabel("ID do Funcionário:");
         label.setFont(new Font("Times New Roman", Font.BOLD, 20));
@@ -63,27 +64,35 @@ public class ModificarAdm extends JFrame {
         getContentPane().setLayout(null);
        
         txtbus = new JTextField();
-        txtbus.setBounds(10, 11, 200, 30);
+        txtbus.setBounds(148, 11, 200, 30);
         getContentPane().add(txtbus);
        
         JButton btnbus = new JButton("Buscar");
-        btnbus.setBounds(241, 11, 100, 30);
+        btnbus.setBounds(358, 11, 100, 30);
         getContentPane().add(btnbus);
+        
+        JLabel lblSalario = new JLabel("Salário:");
+        lblSalario.setFont(new Font("Times New Roman", Font.BOLD, 20));
+        panelInput.add(lblSalario);
+        
+        txtSal = new JTextField();
+        panelInput.add(txtSal);
+        txtSal.setColumns(10);
+        
+        JButton btnBack = new JButton("Voltar");
+        panelInput.add(btnBack);
+        btnBack.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                new MenuAdm().setVisible(true);
+                dispose();
+            }
+        });
 
        
         JButton btnModificar = new JButton("Modificar");
         panelInput.add(btnModificar);
 
         getContentPane().add(panelInput);
-        
-        JButton btnBack = new JButton("Voltar");
-        panelInput.add(btnBack);
-                btnBack.addActionListener(new ActionListener() {
-                    public void actionPerformed(ActionEvent e) {
-                        new MenuAdm().setVisible(true);
-                        dispose();
-                    }
-                });
 
        
         atualizarTabela("");
@@ -147,6 +156,10 @@ public class ModificarAdm extends JFrame {
                     if (!cargo.isEmpty()) {
                         funcionario.setCargoFun(cargo);
                     }
+                    String salStr = txtSal.getText();
+                    if (!salStr.isEmpty()) {
+                        funcionario.setSalarioFun(Integer.parseInt(salStr));
+                    }
 
                     conexao.modificarFuncionario(funcionario);
                     JOptionPane.showMessageDialog(null, "Funcionário atualizado com sucesso!");
@@ -163,8 +176,8 @@ public class ModificarAdm extends JFrame {
         Conexao conexao = new Conexao();
         List<Funcionario> funcionarios = buscar.isEmpty() ? conexao.buscarFuncionarios() : conexao.buscarFuncionariosPorNome(buscar);
 
-        String[] colunas = {"ID", "Nome", "Idade", "CPF", "E-mail", "Cargo"};
-        String[][] dados = new String[funcionarios.size()][6];
+        String[] colunas = {"ID", "Nome", "Idade", "CPF", "E-mail", "Cargo", "Salário"};
+        String[][] dados = new String[funcionarios.size()][7];
 
         for (int i = 0; i < funcionarios.size(); i++) {
             Funcionario func = funcionarios.get(i);
@@ -174,6 +187,7 @@ public class ModificarAdm extends JFrame {
             dados[i][3] = func.getCpfFun();
             dados[i][4] = func.getEmailFun();
             dados[i][5] = func.getCargoFun();
+            dados[i][6] = String.valueOf(func.getSalarioFun());
         }
 
         if (scrollPane != null) {
@@ -183,8 +197,13 @@ public class ModificarAdm extends JFrame {
         tabela = new JTable(dados, colunas);
         tabela.setDefaultEditor(Object.class, null);
         scrollPane = new JScrollPane(tabela);
-        scrollPane.setBounds(384, 0, 834, 427);
+        scrollPane.setBounds(468, 0, 750, 427);
         getContentPane().add(scrollPane);
+        
+        JLabel lblNewLabel = new JLabel("Nome do Funcionário:");
+        lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 12));
+        lblNewLabel.setBounds(10, 11, 128, 30);
+        getContentPane().add(lblNewLabel);
 
         revalidate();
         repaint();

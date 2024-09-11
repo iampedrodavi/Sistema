@@ -42,7 +42,7 @@ public class Login extends JFrame {
 		setTitle("LOGIN - RH");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Login.class.getResource("/Programa/Imagens/recursos-humanos.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 305, 157);
+		setBounds(100, 100, 340, 160);
 		setResizable(false);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -52,7 +52,7 @@ public class Login extends JFrame {
 		contentPane.setLayout(null);
 		
 		JButton btnLog = new JButton("Entrar");
-		btnLog.setBounds(190, 7, 89, 23);
+		btnLog.setBounds(225, 11, 89, 23);
 		btnLog.setFont(new Font("Times New Roman", Font.BOLD, 12));
 		btnLog.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -82,7 +82,7 @@ public class Login extends JFrame {
 		contentPane.add(btnLog);
 		
 		JButton btnSair = new JButton("Sair");
-		btnSair.setBounds(190, 87, 89, 23);
+		btnSair.setBounds(225, 79, 89, 23);
 		btnSair.setFont(new Font("Times New Roman", Font.BOLD, 12));
 		btnSair.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -92,7 +92,7 @@ public class Login extends JFrame {
 		contentPane.add(btnSair);
 		
 		JButton btnCadastrar = new JButton("Cadastrar");
-		btnCadastrar.setBounds(190, 47, 89, 23);
+		btnCadastrar.setBounds(225, 45, 89, 23);
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				new Cadastro().setVisible(true);
@@ -103,12 +103,12 @@ public class Login extends JFrame {
 		contentPane.add(btnCadastrar);
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(10, 11, 170, 86);
+		panel.setBounds(10, 11, 190, 91);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
 		JLabel txtuser = new JLabel("Usuário: ");
-		txtuser.setBounds(0, 0, 85, 43);
+		txtuser.setBounds(0, 9, 70, 25);
 		panel.add(txtuser);
 		txtuser.setFont(new Font("Times New Roman", Font.BOLD, 12));
 		
@@ -118,7 +118,7 @@ public class Login extends JFrame {
 		boxuser.setColumns(10);
 		
 		JLabel txtsen = new JLabel("Senha: ");
-		txtsen.setBounds(0, 43, 85, 43);
+		txtsen.setBounds(0, 52, 70, 25);
 		panel.add(txtsen);
 		txtsen.setFont(new Font("Times New Roman", Font.BOLD, 12));
 		

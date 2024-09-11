@@ -5,6 +5,7 @@ import java.util.List;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Toolkit;
+import java.awt.Font;
 
 
 public class ListarAdm extends JFrame {
@@ -17,30 +18,33 @@ public class ListarAdm extends JFrame {
     public ListarAdm() {
         setIconImage(Toolkit.getDefaultToolkit().getImage(ListarAdm.class.getResource("/Programa/Imagens/recursos-humanos.png")));
         setTitle("Lista de Funcionários");
-        setSize(700, 485);
+        setSize(700, 534);
         setResizable(false);
         setLocationRelativeTo(null);
         getContentPane().setLayout(null);
 
        
         txtSearch = new JTextField();
-        txtSearch.setBounds(136, 400, 200, 30);
+        txtSearch.setBounds(135, 11, 200, 30);
         getContentPane().add(txtSearch);
 
        
         JButton btnSearch = new JButton("Buscar");
-        btnSearch.setBounds(346, 400, 100, 30);
+        btnSearch.setFont(new Font("Times New Roman", Font.BOLD, 12));
+        btnSearch.setBounds(345, 11, 100, 30);
         getContentPane().add(btnSearch);
 
        
         JButton btnAposentadoria = new JButton("Aposentadoria");
+        btnAposentadoria.setFont(new Font("Times New Roman", Font.BOLD, 12));
         btnAposentadoria.setToolTipText("Para resetar a tabela, clicar novamente no botão BUSCAR!");
-        btnAposentadoria.setBounds(456, 400, 108, 30);
+        btnAposentadoria.setBounds(554, 458, 120, 30);
         getContentPane().add(btnAposentadoria);
 
        
         JButton btnBack = new JButton("Voltar");
-        btnBack.setBounds(574, 400, 100, 30);
+        btnBack.setFont(new Font("Times New Roman", Font.BOLD, 12));
+        btnBack.setBounds(10, 458, 120, 30);
         btnBack.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 new MenuAdm().setVisible(true);
@@ -92,12 +96,13 @@ public class ListarAdm extends JFrame {
         tabela = new JTable(dados, colunas);
         tabela.setDefaultEditor(Object.class, null);
         scrollPane = new JScrollPane(tabela);
-        scrollPane.setBounds(0, 0, 684, 395);
+        scrollPane.setBounds(0, 52, 684, 395);
         getContentPane().add(scrollPane);
         
         JLabel lblNewLabel = new JLabel("Nome \r\ndo Funcionário:");
+        lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 12));
         lblNewLabel.setHorizontalAlignment(SwingConstants.LEFT);
-        lblNewLabel.setBounds(10, 400, 136, 30);
+        lblNewLabel.setBounds(10, 11, 136, 30);
         getContentPane().add(lblNewLabel);
 
         revalidate();
@@ -129,7 +134,7 @@ public class ListarAdm extends JFrame {
 
         tabela = new JTable(dados, colunas);
         scrollPane = new JScrollPane(tabela);
-        scrollPane.setBounds(0, 0, 684, 395);
+        scrollPane.setBounds(0, 52, 684, 395);
         getContentPane().add(scrollPane);
 
         revalidate();

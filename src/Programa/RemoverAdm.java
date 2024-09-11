@@ -18,26 +18,27 @@ public class RemoverAdm extends JFrame {
     public RemoverAdm() {
     	setTitle("Remover Funcionário");
         setIconImage(Toolkit.getDefaultToolkit().getImage(RemoverAdm.class.getResource("/Programa/Imagens/recursos-humanos.png")));
-        setSize(690, 438);
+        setSize(815, 430);
         setResizable(false);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(null);
         
         JLabel lblDigiteOId = new JLabel("Digite o ID para remover:");
-        lblDigiteOId.setBounds(330, 18, 157, 14);
+        lblDigiteOId.setFont(new Font("Times New Roman", Font.BOLD, 12));
+        lblDigiteOId.setBounds(489, 18, 157, 14);
         getContentPane().add(lblDigiteOId);
         
         textId = new JTextField();
-        textId.setBounds(497, 10, 176, 30);
+        textId.setBounds(629, 15, 60, 20);
         getContentPane().add(textId);
         
         txtbus = new JTextField();
-        txtbus.setBounds(10, 5, 200, 30);
+        txtbus.setBounds(135, 15, 185, 20);
         getContentPane().add(txtbus);
         
         JButton btnbus = new JButton("Buscar");
-        btnbus.setBounds(220, 5, 100, 30);
+        btnbus.setBounds(330, 15, 90, 20);
         getContentPane().add(btnbus);
 
         JButton btnRemover = new JButton("Remover");
@@ -69,7 +70,7 @@ public class RemoverAdm extends JFrame {
                 }
             }
         });
-        btnRemover.setBounds(555, 361, 109, 35);
+        btnRemover.setBounds(699, 15, 90, 20);
         getContentPane().add(btnRemover);
 
         JButton btnBack = new JButton("Voltar");
@@ -79,7 +80,7 @@ public class RemoverAdm extends JFrame {
                 dispose();
             }
         });
-        btnBack.setBounds(10, 361, 109, 35);
+        btnBack.setBounds(345, 361, 109, 20);
         getContentPane().add(btnBack);
 
         atualizarTabela("");
@@ -115,8 +116,13 @@ public class RemoverAdm extends JFrame {
         tabela = new JTable(dados, colunas);
         tabela.setDefaultEditor(Object.class, null);
         scrollPane = new JScrollPane(tabela);
-        scrollPane.setBounds(10, 46, 663, 304);
+        scrollPane.setBounds(0, 43, 796, 304);
         getContentPane().add(scrollPane, BorderLayout.CENTER);
+        
+        JLabel lblNewLabel = new JLabel("Nome do Funcionário:");
+        lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 12));
+        lblNewLabel.setBounds(10, 18, 135, 14);
+        getContentPane().add(lblNewLabel);
 
         revalidate();
         repaint();

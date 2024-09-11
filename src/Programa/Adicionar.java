@@ -63,7 +63,7 @@ public class Adicionar extends JFrame {
         JButton btnNewButton = new JButton("Voltar");
         btnNewButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                new MenuAdm().setVisible(true);
+                new Menu().setVisible(true);
                 dispose();
             }
         });

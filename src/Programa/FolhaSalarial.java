@@ -17,30 +17,30 @@ public class FolhaSalarial extends JFrame {
     public FolhaSalarial() {
         setIconImage(Toolkit.getDefaultToolkit().getImage(FolhaSalarial.class.getResource("/Programa/Imagens/recursos-humanos.png")));
         setTitle("Lista de Funcionários");
-        setSize(702, 558);
+        setSize(702, 520);
         setResizable(false);
         setLocationRelativeTo(null);
         getContentPane().setLayout(null);
 
        
         txtSearch = new JTextField();
-        txtSearch.setBounds(136, 400, 200, 30);
+        txtSearch.setBounds(135, 5, 200, 20);
         getContentPane().add(txtSearch);
 
        
         JButton btnSearch = new JButton("Buscar");
-        btnSearch.setBounds(346, 400, 100, 30);
+        btnSearch.setBounds(345, 5, 78, 20);
         getContentPane().add(btnSearch);
 
        
         JButton btnAposentadoria = new JButton("Aposentadoria");
         btnAposentadoria.setToolTipText("Para resetar a tabela, clicar novamente no botão BUSCAR!");
-        btnAposentadoria.setBounds(456, 400, 121, 30);
+        btnAposentadoria.setBounds(445, 442, 121, 30);
         getContentPane().add(btnAposentadoria);
 
        
         JButton btnBack = new JButton("Voltar");
-        btnBack.setBounds(10, 478, 100, 30);
+        btnBack.setBounds(10, 442, 100, 30);
         btnBack.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 new MenuAdm().setVisible(true);
@@ -91,12 +91,12 @@ public class FolhaSalarial extends JFrame {
         tabela = new JTable(dados, colunas);
         tabela.setDefaultEditor(Object.class, null);
         scrollPane = new JScrollPane(tabela);
-        scrollPane.setBounds(0, 0, 684, 395);
+        scrollPane.setBounds(0, 36, 684, 395);
         getContentPane().add(scrollPane);
         
         JLabel lblNewLabel = new JLabel("Nome \r\ndo Funcionário:");
         lblNewLabel.setHorizontalAlignment(SwingConstants.LEFT);
-        lblNewLabel.setBounds(10, 400, 136, 30);
+        lblNewLabel.setBounds(10, 5, 152, 20);
         getContentPane().add(lblNewLabel);
         
         JButton btnFolha = new JButton("Gerar Folha");
@@ -144,7 +144,7 @@ public class FolhaSalarial extends JFrame {
                 }
         	}
         });
-        btnFolha.setBounds(587, 400, 89, 30);
+        btnFolha.setBounds(576, 442, 100, 30);
         getContentPane().add(btnFolha);
 
         revalidate();
@@ -175,7 +175,7 @@ public class FolhaSalarial extends JFrame {
 
         tabela = new JTable(dados, colunas);
         scrollPane = new JScrollPane(tabela);
-        scrollPane.setBounds(0, 0, 684, 395);
+        scrollPane.setBounds(0, 36, 684, 395);
         getContentPane().add(scrollPane);
 
         revalidate();
