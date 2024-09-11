@@ -42,7 +42,7 @@ public class FolhaSalarial extends JFrame {
         btnBack.setBounds(10, 478, 100, 30);
         btnBack.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                new Menu().setVisible(true);
+                new MenuAdm().setVisible(true);
                 dispose();
             }
         });
@@ -98,9 +98,53 @@ public class FolhaSalarial extends JFrame {
         lblNewLabel.setBounds(10, 400, 136, 30);
         getContentPane().add(lblNewLabel);
         
-        JButton btnNewButton = new JButton("Gerar Folha");
-        btnNewButton.setBounds(587, 400, 89, 30);
-        getContentPane().add(btnNewButton);
+        JButton btnFolha = new JButton("Gerar Folha");
+        btnFolha.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		int linha = tabela.getSelectedRow(); 
+                
+                if (linha != -1) {
+                    
+                    String nome = tabela.getValueAt(linha, 1).toString();
+                    String salarioStr = tabela.getValueAt(linha, 4).toString();
+                    double salario = Double.parseDouble(salarioStr);
+     
+                    double inss;
+                    if (salario <= 1302.00) {
+                        inss = salario * 0.075; 
+                    } else if (salario <= 2571.29) {
+                        inss = salario * 0.09; 
+                    } else if (salario <= 3856.94) {
+                        inss = salario * 0.12; 
+                    } else {
+                        inss = salario * 0.14; 
+                    }
+
+                    
+                    double valeTransporte = salario * 0.06;
+  
+                    double totalDescontos = inss  + valeTransporte;
+             
+                    double salarioLiquido = salario - totalDescontos;
+
+                    String mensagem = String.format(
+                        "Folha Salarial de %s\n" +
+                        "Salário Bruto: R$ %.2f\n" +
+                        "Desconto INSS: R$ %.2f\n" +
+                        "Vale Transporte: R$ %.2f\n" +
+                        "Total de Descontos: R$ %.2f\n" +
+                        "Salário Líquido: R$ %.2f", 
+                        nome, salario, inss, valeTransporte, totalDescontos, salarioLiquido
+                    );
+                    
+                    JOptionPane.showMessageDialog(null, mensagem, "Folha Salarial", JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Selecione um funcionário para gerar a folha salarial.", "Erro", JOptionPane.ERROR_MESSAGE);
+                }
+        	}
+        });
+        btnFolha.setBounds(587, 400, 89, 30);
+        getContentPane().add(btnFolha);
 
         revalidate();
         repaint();
