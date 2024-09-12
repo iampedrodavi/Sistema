@@ -5,7 +5,7 @@ public class SetupBanco {
 	public static void main(String[] args) {
 		String host = "jdbc:mysql://localhost:3306/";
 		String user = "root";
-		String password = "290600";
+		String password = "Aluno";
 
         Connection con = null;
         Statement st = null;

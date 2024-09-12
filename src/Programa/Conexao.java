@@ -16,7 +16,7 @@ public class Conexao {
     public Conexao(){
         this.host = "jdbc:mysql://localhost:3306/sistema";
         this.user = "root";
-        this.password = "290600";
+        this.password = "Aluno";
     }
 
     public void conectar() {
