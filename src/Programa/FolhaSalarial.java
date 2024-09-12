@@ -3,7 +3,9 @@ package Programa;
 import javax.swing.*;
 import java.util.List;
 import java.awt.event.ActionListener;
+import java.awt.print.PrinterException;
 import java.awt.event.ActionEvent;
+import java.awt.BorderLayout;
 import java.awt.Toolkit;
 
 
@@ -106,39 +108,84 @@ public class FolhaSalarial extends JFrame {
                 
                 if (linha != -1) {
                     
-                    String nome = tabela.getValueAt(linha, 1).toString();
-                    String salarioStr = tabela.getValueAt(linha, 4).toString();
-                    double salario = Double.parseDouble(salarioStr);
-     
-                    double inss;
-                    if (salario <= 1302.00) {
-                        inss = salario * 0.075; 
-                    } else if (salario <= 2571.29) {
-                        inss = salario * 0.09; 
-                    } else if (salario <= 3856.94) {
-                        inss = salario * 0.12; 
-                    } else {
-                        inss = salario * 0.14; 
-                    }
+                	String nome = tabela.getValueAt(linha, 1).toString();
+                	String salarioStr = tabela.getValueAt(linha, 4).toString();
 
-                    
-                    double valeTransporte = salario * 0.06;
-  
-                    double totalDescontos = inss  + valeTransporte;
-             
-                    double salarioLiquido = salario - totalDescontos;
+                	try {
+                	    double salario = Double.parseDouble(salarioStr);
 
-                    String mensagem = String.format(
-                        "Funcionário: %s\n" +
-                        "Salário Bruto: R$ %.2f\n" +
-                        "Desconto INSS: R$ %.2f\n" +
-                        "Vale Transporte: R$ %.2f\n" +
-                        "Total de Descontos: R$ %.2f\n" +
-                        "Salário Líquido: R$ %.2f", 
-                        nome, salario, inss, valeTransporte, totalDescontos, salarioLiquido
-                    );
-                    
-                    JOptionPane.showMessageDialog(null, mensagem, "Folha Salarial", JOptionPane.INFORMATION_MESSAGE);
+                	    double inss;
+                	    if (salario <= 1302.00) {
+                	        inss = salario * 0.075; 
+                	    } else if (salario <= 2571.29) {
+                	        inss = salario * 0.09; 
+                	    } else if (salario <= 3856.94) {
+                	        inss = salario * 0.12; 
+                	    } else {
+                	        inss = salario * 0.14; 
+                	    }
+
+                	    double valeTransporte = salario * 0.06;
+
+                	    double irrf = 0;
+                	    if (salario <= 1903.98) {
+                	        irrf = 0; 
+                	    } else if (salario <= 2826.65) {
+                	        irrf = salario * 0.075 - 142.80;
+                	    } else if (salario <= 3751.05) {
+                	        irrf = salario * 0.15 - 354.80;
+                	    } else if (salario <= 4664.68) {
+                	        irrf = salario * 0.225 - 636.13;
+                	    } else {
+                	        irrf = salario * 0.275 - 869.36;
+                	    }
+
+                	    double totalDescontos = inss + valeTransporte + irrf;
+
+                	    double salarioLiquido = salario - totalDescontos;
+
+                	    JPanel panel = new JPanel(new BorderLayout());
+                	    JTextArea textArea = new JTextArea();
+                	    textArea.setText(
+                	        String.format(
+                	            "==================== CONTRACHEQUE ====================\n" +
+                	            "Funcionário: %s\n" +
+                	            "------------------------------------------------------\n" +
+                	            "Salário Bruto:        R$ %.2f\n" +
+                	            "Desconto INSS:        R$ %.2f\n" +
+                	            "Vale Transporte:      R$ %.2f\n" +
+                	            "IRRF:                 R$ %.2f\n" +
+                	            "------------------------------------------------------\n" +
+                	            "Total de Descontos:   R$ %.2f\n" +
+                	            "------------------------------------------------------\n" +
+                	            "Salário Líquido:      R$ %.2f\n" +
+                	            "======================================================", 
+                	            nome, salario, inss, valeTransporte, irrf, totalDescontos, salarioLiquido
+                	        )
+                	    );
+                	    textArea.setEditable(false);
+
+                	    JScrollPane scrollPane = new JScrollPane(textArea);
+                	    panel.add(scrollPane, BorderLayout.CENTER);
+
+                	    JButton imprimirButton = new JButton("Imprimir");
+                	    imprimirButton.addActionListener(new ActionListener() {
+                        	public void actionPerformed(ActionEvent e) {
+                	    
+                	        try {
+                	            textArea.print();  
+                	        } catch (PrinterException ex) {
+                	            JOptionPane.showMessageDialog(null, "Erro ao tentar imprimir: " + ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+                	        }
+                        	}});
+
+                	    panel.add(imprimirButton, BorderLayout.SOUTH);
+
+                	    JOptionPane.showMessageDialog(null, panel, "Folha Salarial", JOptionPane.INFORMATION_MESSAGE);
+
+                	} catch (NumberFormatException e1) {
+                	    JOptionPane.showMessageDialog(null, "Erro ao converter o valor do salário.", "Erro", JOptionPane.ERROR_MESSAGE);
+                	}
                 } else {
                     JOptionPane.showMessageDialog(null, "Selecione um funcionário para gerar a folha salarial.", "Erro", JOptionPane.ERROR_MESSAGE);
                 }
